@@ -1,68 +1,106 @@
-@mixin margin {
-    max-width: 1360px;
-    margin: 0 auto;
+//Responsiveness
 
-    @media (max-width: 1360px) {
-        max-width: 1200px;
-    }
+$mobile-width: 530px;
+$tablet-width: 768px;
+$desktop-width: 1200px;
 
-    @media (max-width: 1200px) {
-        max-width: 800px;
-    }
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
 }
 
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin lg-desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+//Layout
+
+@mixin margin {
+  max-width: #{$desktop-width - 20px};
+  margin: 0 auto;
+
+  @include desktop {
+    max-width: #{$tablet-width - 20px};
+  }
+
+  @include tablet {
+    max-width: #{$mobile-width - 20px};
+  }
+
+  @include mobile {
+    max-width: 300px;
+  }
+}
+
+//Typography
+
 @mixin a-300($size, $line: $size + 9px) {
-    font-family: Arial, sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 300;
+  font-family: Arial, sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 300;
 }
 
 @mixin a-400($size, $line: $size + 9px) {
-    font-family: Arial, sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 400;
+  font-family: Arial, sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 400;
 }
 
 @mixin a-600($size, $line: $size + 9px) {
-    font-family: Arial, sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 600;
+  font-family: Arial, sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 600;
 }
 
 @mixin a-700($size, $line: $size + 9px) {
-    font-family: Arial, sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 700;
+  font-family: Arial, sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 700;
 }
 
 @mixin os-300($size, $line: $size + 9px) {
-    font-family: 'Open Sans', sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 300;
 }
 
 @mixin os-400($size, $line: $size + 9px) {
-    font-family: 'Open Sans', sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 400;
 }
 
 @mixin os-600($size, $line: $size + 9px) {
-    font-family: 'Open Sans', sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 600;
 }
 
 @mixin os-700($size, $line: $size + 9px) {
-    font-family: 'Open Sans', sans-serif;
-    font-size: $size;
-    line-height: $line;
-    font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: 700;
 }
