@@ -47,6 +47,13 @@ $desktop-width: 1200px;
   }
 }
 
+@mixin ab-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 //Typography
 
 @mixin a-300($size, $line: $size + 9px) {
